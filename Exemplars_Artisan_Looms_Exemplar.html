@@ -1,0 +1,281 @@
+<!--
+EXEMPLAR ANALYSIS:
+- Narrative Flow: This page demonstrates a perfect journey from a problem to a solution.
+- Animation: The scroll-triggered animations using Anime.js are exactly the style we want. They are smooth, purposeful, and enhance the storytelling.
+- Code Quality: The code is clean, semantic, and includes performance best practices like lazy loading.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Looms - Handcrafted Excellence</title>
+    <meta name="description" content="Experience the timeless art of handcrafted textiles with Artisan Looms. Each piece tells a story of tradition and innovation.">
+    
+    <!-- Performance: Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Required Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        :root {
+            --color-primary: #8B4513;
+            --color-secondary: #D2B48C;
+            --color-accent: #CD853F;
+            --color-text: #2F1B14;
+            --color-light: #F5F5DC;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--color-text);
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section with Cinematic Animation */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('[HERO_IMAGE_URL]');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .cta-button:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Scroll-triggered sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .section h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+        }
+        
+        .pills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .pillar-card {
+            background: var(--color-light);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .pillar-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            loading: lazy;
+        }
+        
+        .footer {
+            background: var(--color-text);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Where Tradition Meets Innovation</h1>
+            <p>Discover the timeless art of handcrafted textiles, reimagined for modern living</p>
+            <a href="#story" class="cta-button">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section" id="story">
+        <h2>The Problem</h2>
+        <p>In a world of mass-produced goods, we've lost the connection to the stories behind our possessions. Each piece from Artisan Looms carries the soul of its maker.</p>
+        
+        <div class="pills-container">
+            <div class="pillar-card">
+                <img src="[PILLAR_1_IMAGE]" alt="Traditional weaving techniques" loading="lazy">
+                <h3>Heritage Craft</h3>
+                <p>Centuries-old techniques passed down through generations</p>
+            </div>
+            
+            <div class="pillar-card">
+                <img src="[PILLAR_2_IMAGE]" alt="Modern design aesthetic" loading="lazy">
+                <h3>Contemporary Design</h3>
+                <p>Timeless aesthetics that complement modern interiors</p>
+            </div>
+            
+            <div class="pillar-card">
+                <img src="[PILLAR_3_IMAGE]" alt="Sustainable materials" loading="lazy">
+                <h3>Sustainable Materials</h3>
+                <p>Eco-conscious production with natural, renewable fibers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+        <h2>Your Story Begins Here</h2>
+        <p>Each Artisan Looms piece is more than decor—it's a chapter in your home's story.</p>
+        <a href="#contact" class="cta-button">Create Your Legacy</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>A Custom Digital Experience by Switch Communications</p>
+    </footer>
+
+    <!-- Animation Scripts -->
+    <script>
+        // Hero animation on load
+        anime.timeline()
+            .add({
+                targets: '.hero-content',
+                opacity: [0, 1],
+                translateY: [50, 0],
+                duration: 1500,
+                easing: 'easeOutExpo'
+            })
+            .add({
+                targets: '.cta-button',
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800,
+                easing: 'easeOutExpo',
+                offset: '-=600'
+            });
+
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: entry.target,
+                        opacity: [0, 1],
+                        translateY: [50, 0],
+                        duration: 1000,
+                        easing: 'easeOutExpo'
+                    });
+                    
+                    // Animate pillar cards with stagger
+                    if (entry.target.querySelectorAll('.pillar-card')) {
+                        anime({
+                            targets: entry.target.querySelectorAll('.pillar-card'),
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            delay: anime.stagger(200),
+                            duration: 800,
+                            easing: 'easeOutExpo'
+                        });
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
